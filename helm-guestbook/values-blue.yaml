@@ -9,7 +9,9 @@ ingress:
     cert-manager.io/cluster-issuer: letsencrypt-prod
   path: /
   hosts:
-    - guestbook.pb-ha.ifs.fcam.vn
+    - host: guestbook.pb-ha.ifs.fcam.vn
+      paths:
+          - /
   tls:
     - secretName: guestbook-tls
       hosts:
