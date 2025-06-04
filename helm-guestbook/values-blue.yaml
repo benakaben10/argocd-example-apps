@@ -11,10 +11,9 @@ ingress:
     kubernetes.io/ingress.class: ingress-nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     cert-manager.io/cluster-issuer: letsencrypt-prod
-    nginx.ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/configuration-snippet: |
-      if ($remote_addr = "42.115.25.145") {
-              set $service_name "green-guestbook";
+      if ($remote_addr != "42.115.25.145") {
+        return 418;
       }
 #      more_set_headers "X-Remote-Addr: $proxy_protocol_addr";
 #      more_set_headers "X-Forwarded-For: $http_x_forwarded_for";

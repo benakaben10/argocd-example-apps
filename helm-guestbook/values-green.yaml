@@ -4,3 +4,26 @@ image:
   repository: nginx
   tag: latest
 description: This is Green version of Guestbook application
+
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: ingress-nginx
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      if ($remote_addr = "42.115.25.145") {
+        return 418;
+      }
+#      more_set_headers "X-Remote-Addr: $proxy_protocol_addr";
+#      more_set_headers "X-Forwarded-For: $http_x_forwarded_for";
+  path: /
+  hosts:
+    - host: guestbook.pb-ha.ifs.fcam.vn
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - secretName: guestbook-tls
+      hosts:
+        - guestbook.pb-ha.ifs.fcam.vn
