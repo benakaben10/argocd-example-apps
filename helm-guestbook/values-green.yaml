@@ -1,2 +1,4 @@
 fullnameOverride: green-guestbook
 nameOverride: green-guestbook
+
+description: This is Green version of Guestbook application
