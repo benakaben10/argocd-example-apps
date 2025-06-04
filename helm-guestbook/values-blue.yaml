@@ -1,0 +1,16 @@
+fullnameOverride: blue-guestbook
+nameOverride: blue-guestbook
+
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: ingress-nginx
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+  path: /
+  hosts:
+    - guestbook.pb-ha.ifs.fcam.vn
+  tls:
+    - secretName: guestbook-tls
+      hosts:
+        - guestbook.pb-ha.ifs.fcam.vn
