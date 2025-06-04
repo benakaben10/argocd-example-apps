@@ -1,4 +1,6 @@
 fullnameOverride: green-guestbook
 nameOverride: green-guestbook
-
+image:
+  repository: nginx
+  tag: latest
 description: This is Green version of Guestbook application

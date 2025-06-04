@@ -2,8 +2,8 @@ fullnameOverride: blue-guestbook
 nameOverride: blue-guestbook
 description: This is Blue version of Guestbook application
 image:
-  repository: benluu/debugger
-  tag: net-debug-tools-0
+  repository: nginx
+  tag: latest
 
 ingress:
   enabled: true
