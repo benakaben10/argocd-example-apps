@@ -14,6 +14,7 @@ ingress:
     nginx.ingress.kubernetes.io/canary: "true"
     nginx.ingress.kubernetes.io/canary-by-header: "X-Canary-Ip"
     nginx.ingress.kubernetes.io/canary-by-header-value: "42.115.25.145"
+    "nginx.ingress.kubernetes.io/custom-headers": "ingress-nginx/custom-headers"
     nginx.ingress.kubernetes.io/configuration-snippet: |
       proxy_set_header X-Canary-Ip $remote_addr;
   path: /
