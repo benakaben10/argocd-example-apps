@@ -16,7 +16,8 @@ ingress:
     nginx.ingress.kubernetes.io/canary-by-header-value: "42.115.25.145"
     "nginx.ingress.kubernetes.io/custom-headers": "ingress-nginx/custom-headers"
     nginx.ingress.kubernetes.io/configuration-snippet: |
-      proxy_set_header X-Canary-Ip $remote_addr;
+      more_set_headers "Request-Id: $req_id";
+      more_set_headers "X-Canary: $remote_addr";
   path: /
   hosts:
     - host: guestbook.pb-ha.ifs.fcam.vn
