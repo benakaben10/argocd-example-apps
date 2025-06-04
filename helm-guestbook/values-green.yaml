@@ -11,6 +11,7 @@ ingress:
     kubernetes.io/ingress.class: ingress-nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/canary: "true"
     nginx.ingress.kubernetes.io/canary-by-header: "X-Canary"
     nginx.ingress.kubernetes.io/canary-by-header-value: "green"
   path: /
