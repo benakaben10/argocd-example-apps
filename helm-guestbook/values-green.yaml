@@ -14,6 +14,9 @@ ingress:
     nginx.ingress.kubernetes.io/canary: "true"
     nginx.ingress.kubernetes.io/canary-by-header: "X-Canary-Ip"
     nginx.ingress.kubernetes.io/canary-by-header-value: "42.115.25.145"
+    nginx.ingress.kubernetes.io/enable-modsecurity: "true"
+    nginx.ingress.kubernetes.io/enable-owasp-core-rules: "true"
+    nginx.ingress.kubernetes.io/modsecurity-transaction-id: "$request_id"
     nginx.ingress.kubernetes.io/configuration-snippet: |
        more_set_input_headers -r X-Forwarded-For $remote_addr;
        more_set_input_headers -r X-Real-Ip $remote_addr;
