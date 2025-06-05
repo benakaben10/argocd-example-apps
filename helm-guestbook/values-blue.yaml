@@ -11,6 +11,9 @@ ingress:
     kubernetes.io/ingress.class: ingress-nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/enable-modsecurity: "true"
+    nginx.ingress.kubernetes.io/enable-owasp-core-rules: "true"
+    nginx.ingress.kubernetes.io/modsecurity-transaction-id: "$request_id"
   path: /
   hosts:
     - host: guestbook.pb-ha.ifs.fcam.vn
