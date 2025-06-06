@@ -12,7 +12,7 @@ ingress:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     cert-manager.io/cluster-issuer: letsencrypt-prod
     nginx.ingress.kubernetes.io/canary: "true"
-    nginx.ingress.kubernetes.io/canary-by-header: "X-Canary-Ip"
+    nginx.ingress.kubernetes.io/canary-by-header: "X-Real-IP"
     nginx.ingress.kubernetes.io/canary-by-header-value: "42.115.25.145"
     nginx.ingress.kubernetes.io/enable-modsecurity: "true"
     nginx.ingress.kubernetes.io/enable-owasp-core-rules: "true"
