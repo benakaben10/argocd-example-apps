@@ -17,12 +17,6 @@ ingress:
     nginx.ingress.kubernetes.io/enable-modsecurity: "false"
     nginx.ingress.kubernetes.io/enable-owasp-core-rules: "false"
     nginx.ingress.kubernetes.io/modsecurity-transaction-id: "$request_id"
-    nginx.ingress.kubernetes.io/modsecurity-snippet: |
-      SecRule REQUEST_METHOD "@rx .*" \
-        "id:1001,phase:1,log,deny,status:403,msg:'Potential TLS handshake or non-HTTP request detected',\
-        chain"
-      SecRule REQUEST_URI "@beginsWith %{tx.unicode.escape} \x16\x03\x01" \
-        "t:none"
     nginx.ingress.kubernetes.io/configuration-snippet: |
        more_set_input_headers -r X-Forwarded-For $remote_addr;
        more_set_input_headers -r X-Real-Ip $remote_addr;
